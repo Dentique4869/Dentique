@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Dentique Dental Store"
+description = "A product catalog for dental students with categorized instruments, local product imagery, and a WhatsApp order list."
+version = "1.0.0"
+id = "artifacts/dental-store"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19833
+
+[services.development]
+run = "pnpm --filter @workspace/dental-store run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dental-store", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/dental-store/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19833"
+BASE_PATH = "/"

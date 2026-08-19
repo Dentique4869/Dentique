@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --font-sans: var(--app-font-sans);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ─── Dentique: warm chocolate & parchment ──────────────────────────────── */
+:root {
+  --button-outline: rgba(60, 25, 5, 0.12);
+  --badge-outline: rgba(60, 25, 5, 0.08);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(60, 25, 5, 0.04);
+  --elevate-2: rgba(60, 25, 5, 0.09);
+
+  /* Parchment cream — matches logo background */
+  --background: 28 40% 93%;
+  --foreground: 18 76% 11%;       /* deep chocolate */
+
+  --border: 25 28% 82%;
+  --input: 25 28% 82%;
+  --ring: 22 52% 30%;
+
+  --card: 30 36% 97%;
+  --card-foreground: 18 76% 11%;
+  --card-border: 25 28% 86%;
+
+  --popover: 30 36% 97%;
+  --popover-foreground: 18 76% 11%;
+  --popover-border: 25 28% 82%;
+
+  /* Warm cocoa — primary CTA */
+  --primary: 22 52% 30%;
+  --primary-foreground: 28 40% 93%;
+
+  /* Warm sand */
+  --secondary: 30 28% 85%;
+  --secondary-foreground: 18 55% 22%;
+
+  --muted: 27 24% 89%;
+  --muted-foreground: 22 18% 50%;
+
+  /* Amber-brown accent */
+  --accent: 34 46% 44%;
+  --accent-foreground: 28 40% 93%;
+
+  --destructive: 0 65% 44%;
+  --destructive-foreground: 0 0% 98%;
+
+  --app-font-sans: 'Inter', sans-serif;
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* Deep chocolate night mode */
+  --background: 18 58% 8%;
+  --foreground: 28 36% 88%;
+  --border: 18 38% 22%;
+  --input: 18 38% 22%;
+  --ring: 30 48% 55%;
+  --card: 18 52% 12%;
+  --card-foreground: 28 36% 88%;
+  --card-border: 18 38% 22%;
+  --popover: 18 52% 12%;
+  --popover-foreground: 28 36% 88%;
+  --popover-border: 18 38% 22%;
+  --primary: 30 48% 55%;
+  --primary-foreground: 18 76% 9%;
+  --secondary: 18 38% 20%;
+  --secondary-foreground: 28 36% 78%;
+  --muted: 18 38% 17%;
+  --muted-foreground: 25 22% 58%;
+  --accent: 34 44% 50%;
+  --accent-foreground: 18 76% 9%;
+  --destructive: 0 60% 40%;
+  --destructive-foreground: 0 0% 98%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary;
+  }
+}
+
+/* ─── Order announcement marquee ────────────────────────────────────────── */
+.announcement-banner {
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  background: hsl(22 52% 30%);
+  color: hsl(28 40% 93%);
+  border-bottom: 1px solid hsl(34 46% 44% / 0.55);
+  box-shadow: 0 5px 18px hsl(22 52% 20% / 0.12);
+}
+
+.announcement-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.announcement-track {
+  display: flex;
+  width: max-content;
+  min-height: 42px;
+  align-items: center;
+  animation: announcement-marquee 27s linear infinite;
+}
+
+.announcement-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 2.5rem;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.announcement-sparkle {
+  color: hsl(39 92% 76%);
+  font-size: 1rem;
+  letter-spacing: normal;
+}
+
+.announcement-divider {
+  color: hsl(39 92% 76% / 0.72);
+  font-size: 1rem;
+  letter-spacing: normal;
+}
+
+.announcement-note {
+  color: hsl(28 40% 93% / 0.7);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.announcement-banner:hover .announcement-track {
+  animation-play-state: paused;
+}
+
+@keyframes announcement-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .announcement-item:nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .announcement-track {
+    animation-duration: 21s;
+  }
+
+  .announcement-item {
+    gap: 0.5rem;
+    padding-inline: 1.5rem;
+    font-size: 0.63rem;
+    letter-spacing: 0.11em;
+  }
+
+  .announcement-note {
+    font-size: 0.58rem;
+  }
+}
