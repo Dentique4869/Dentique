@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { ShoppingCart, Plus, Minus, Trash2 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 import {
   Sheet,
   SheetContent,
@@ -25,6 +27,7 @@ export function CartDrawer({
   updateQuantity,
   removeFromCart,
 }: CartDrawerProps) {
+  const [promoCode, setPromoCode] = useState("");
 
   const handleShareCart = () => {
     if (items.length === 0) return;
@@ -33,6 +36,10 @@ export function CartDrawer({
     items.forEach(item => {
       message += `- ${item.name} x${item.quantity}\n`;
     });
+    const trimmedPromoCode = promoCode.trim();
+    if (trimmedPromoCode) {
+      message += `\nPromo code: ${trimmedPromoCode}\n`;
+    }
     message += "\nPlease confirm availability and pricing. Thank you!";
 
     const encoded = encodeURIComponent(message);
@@ -122,6 +129,24 @@ export function CartDrawer({
                 {items.reduce((s, i) => s + i.quantity, 0)} item{items.reduce((s, i) => s + i.quantity, 0) !== 1 ? 's' : ''} in your list
               </p>
               <p className="text-xs text-muted-foreground">Pricing will be confirmed via WhatsApp.</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <label htmlFor="promo-code" className="text-sm font-medium text-foreground">
+                Promo code <span className="font-normal text-muted-foreground">(optional)</span>
+              </label>
+              <Input
+                id="promo-code"
+                value={promoCode}
+                onChange={(event) => setPromoCode(event.target.value)}
+                placeholder="Enter your promo code"
+                autoComplete="off"
+                autoCapitalize="characters"
+                data-testid="input-promo-code"
+              />
+              <p className="text-xs text-muted-foreground">
+                We’ll include it with your WhatsApp order.
+              </p>
             </div>
 
             <Button
