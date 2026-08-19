@@ -129,8 +129,9 @@
 
 /* ─── Order announcement marquee ────────────────────────────────────────── */
 .announcement-banner {
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 4rem;
+  z-index: 30;
   overflow: hidden;
   background: hsl(22 52% 30%);
   color: hsl(28 40% 93%);
