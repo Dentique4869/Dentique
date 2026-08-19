@@ -1,0 +1,13 @@
+{
+  "name": "Dentique",
+  "short_name": "Dentique",
+  "icons": [
+    {
+      "src": "/Logo.png",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#EBE0D3",
+  "background_color": "#EBE0D3",
+  "display": "standalone"
+}
