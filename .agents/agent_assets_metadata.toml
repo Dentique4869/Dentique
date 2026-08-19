@@ -7,3 +7,10 @@ uri = "file://attached_assets/dentique-website-updated.zip"
 type = "unspecified"
 title = "Updated Dentique Website ZIP"
 description = "Updated Dentique source package with the sticky free-stickers announcement and promo-code field included in WhatsApp orders."
+
+[[outputs]]
+id = "i98wJC2L3VxoowyPw3rLD"
+uri = "file://attached_assets/dentique-standalone-cloudflare.zip"
+type = "unspecified"
+title = "Dentique Standalone Cloudflare ZIP"
+description = "Tested standalone React + Vite export. Replit plugins, workspace-only dependencies, artifact metadata, and Replit environment requirements are excluded."

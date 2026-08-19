@@ -1,6 +1,6 @@
 # Dentique — Dental Instruments Store
 
-A React + Vite storefront for dental students to browse instruments and send WhatsApp orders.
+A standalone React + Vite storefront for dental students to browse instruments and send WhatsApp orders.
 
 ## Tech Stack
 - **React 18** + **TypeScript**
@@ -12,20 +12,20 @@ A React + Vite storefront for dental students to browse instruments and send Wha
 
 ---
 
-## Quick Start (local)
+## Quick Start
 
 ### Prerequisites
 - [Node.js 18+](https://nodejs.org/)
-- [pnpm](https://pnpm.io/) — install with `npm i -g pnpm`
+- npm 9+ or [pnpm](https://pnpm.io/)
 
 ### Steps
 
 ```bash
 # 1. Install dependencies
-pnpm install
+npm install
 
 # 2. Start the dev server
-pnpm dev
+npm run dev
 ```
 
 The site will be available at **http://localhost:5173**
@@ -33,9 +33,21 @@ The site will be available at **http://localhost:5173**
 ### Build for production
 
 ```bash
-pnpm build        # outputs to ./dist
-pnpm preview      # preview the production build locally
+npm run build     # outputs to ./dist/public
+npm run serve     # preview the production build locally
 ```
+
+---
+
+## Cloudflare Pages
+
+Create a Pages project from this folder with:
+
+- **Build command:** `npm run build`
+- **Build output directory:** `dist/public`
+- **Node.js version:** 18 or newer
+
+This is a client-side storefront, so no server or environment variables are required. The product catalog, cart, promo-code field, and WhatsApp ordering all run in the browser.
 
 ---
 
