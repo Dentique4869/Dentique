@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FreeStickerBanner } from '@/components/FreeStickerBanner';
 import { products, Category, Product } from '@/data/products';
+import { UniversitySection } from '@/components/UniversitySection';
 
 const CATEGORIES: Category[] = [
   'All',
