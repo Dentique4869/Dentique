@@ -118,6 +118,7 @@ export default function Home({ onAddToCart, cartItems }: HomeProps) {
           </div>
         </div>
       </section>
+      <UniversitySection />
 
       {/* ── Catalog ───────────────────────────────────────────────────────── */}
       <section id="catalog" className="py-16 md:py-24 container mx-auto px-4">
