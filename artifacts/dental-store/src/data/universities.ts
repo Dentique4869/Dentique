@@ -77,4 +77,47 @@ export const universities: University[] = [
 ];
 
 export const getUniversityById = (id: string) =>
+  universities.find((university) => university.id === id);        name: 'Arish Campus',
+      },
+    ],
+  },
+  {
+    id: 'october-6',
+    name: 'October 6 University',
+    shortName: 'O6U',
+    logo: '/universities/october-6-university.png',
+  },
+  {
+    id: 'suez-canal',
+    name: 'Suez Canal University',
+    shortName: 'SCU',
+    logo: '/universities/suez-canal-university.png',
+  },
+  {
+    id: 'benha-national',
+    name: 'Benha National University',
+    shortName: 'BNU',
+    logo: '/universities/benha-national-university.png',
+  },
+  {
+    id: 'king-salman',
+    name: 'King Salman International University',
+    shortName: 'KSIU',
+    logo: '/universities/king-salman-international-university.png',
+  },
+  {
+    id: 'sphinx',
+    name: 'Sphinx University',
+    shortName: 'SPU',
+    logo: '/universities/sphinx-university.png',
+  },
+  {
+    id: 'south-valley',
+    name: 'South Valley University',
+    shortName: 'SVU',
+    logo: '/universities/south-valley-university.png',
+  },
+];
+
+export const getUniversityById = (id: string) =>
   universities.find((university) => university.id === id);
