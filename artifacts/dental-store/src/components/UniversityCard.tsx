@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import type { University } from '@/data/universities';
 
@@ -45,23 +46,13 @@ export function UniversityCard({ university }: UniversityCardProps) {
             </p>
           )}
 
-          <button
-            type="button"
-            className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            onClick={() => {
-              const element = document.getElementById(
-                `university-${university.id}`,
-              );
-
-              element?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-              });
-            }}
-          >
-            View packages
-            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-          </button>
+          <Link
+  to={`/university/${university.id}`}
+  className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+>
+  View packages
+  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+</Link>
         </div>
       </CardContent>
     </Card>
