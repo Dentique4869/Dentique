@@ -10,6 +10,7 @@ import { useCart } from './hooks/use-cart';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
+
   const {
     items,
     addToCart,
@@ -19,22 +20,50 @@ function App() {
   } = useCart();
 
   return (
-    <div className="flex flex-col min-h-[100dvh] w-full font-sans bg-white text-slate-900">
-      <Navbar
-        cartItemCount={totalItems}
-        onOpenCart={() => setIsCartOpen(true)}
-      />
+    <BrowserRouter>
+      <div className="flex flex-col min-h-[100dvh] w-full font-sans bg-white text-slate-900">
+        <Navbar
+          cartItemCount={totalItems}
+          onOpenCart={() => setIsCartOpen(true)}
+        />
 
-      <Home
-        onAddToCart={addToCart}
-        cartItems={items}
-      />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                onAddToCart={addToCart}
+                cartItems={items}
+              />
+            }
+          />
 
-      <Footer />
+          <Route
+            path="/university/:universityId"
+            element={<UniversityPackages />}
+          />
 
-      <CartDrawer
-        open={isCartOpen}
-        onOpenChange={setIsCartOpen}
+          <Route
+            path="/university/:universityId/:yearId"
+            element={<UniversityProducts />}
+          />
+        </Routes>
+
+        <Footer />
+
+        <CartDrawer
+          open={isCartOpen}
+          onOpenChange={setIsCartOpen}
+          items={items}
+          updateQuantity={updateQuantity}
+          removeFromCart={removeFromCart}
+        />
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;        onOpenChange={setIsCartOpen}
         items={items}
         updateQuantity={updateQuantity}
         removeFromCart={removeFromCart}
