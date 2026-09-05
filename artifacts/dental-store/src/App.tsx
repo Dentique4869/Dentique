@@ -3,8 +3,8 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import Home from './pages/Home';
-import UniversityPackages from '@/pages/UniversityPackages';
-import UniversityProducts from '@/pages/UniversityProducts';
+import UniversityPackages from './pages/UniversityPackages';
+import UniversityProducts from './pages/UniversityProducts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useCart } from './hooks/use-cart';
 
@@ -60,15 +60,6 @@ function App() {
         />
       </div>
     </BrowserRouter>
-  );
-}
-
-export default App;        onOpenChange={setIsCartOpen}
-        items={items}
-        updateQuantity={updateQuantity}
-        removeFromCart={removeFromCart}
-      />
-    </div>
   );
 }
 
