@@ -28,13 +28,16 @@ export function UniversitySection() {
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {universities.map((university) => (
-            <div
+            <UniversityCard
               key={university.id}
-              id={`university-${university.id}`}
-              className="scroll-mt-28"
-            >
-              <UniversityCard university={university} />
-            </div>
+              university={university}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}            </div>
           ))}
         </div>
       </div>
