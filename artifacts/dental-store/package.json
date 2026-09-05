@@ -1,0 +1,27 @@
+{
+  "name": "@workspace/dental-store",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "serve": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-router-dom": "^7.9.3",
+    "react-icons": "^5.4.0",
+    "framer-motion": "12.4.7",
+    "lucide-react": "0.511.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.4.1",
+    "@tailwindcss/vite": "4.1.7",
+    "tailwindcss": "4.1.7",
+    "typescript": "^5.0.0",
+    "vite": "6.1.0"
+  }
+}
