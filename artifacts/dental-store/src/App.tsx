@@ -84,6 +84,56 @@ function App() {
   );
 }
 
+export default App;              <Home
+                onAddToCart={addToCart}
+                cartItems={items}
+              />
+            }
+          />
+
+          <Route
+            path="/university/:universityId"
+            element={<UniversityPackages />}
+          />
+
+          <Route
+            path="/university/:universityId/:yearId"
+            element={<UniversityProducts />}
+          />
+
+          <Route
+            path="*"
+            element={
+              <main className="min-h-[60vh] px-4 py-24 text-center">
+                <h1
+                  className="text-3xl font-bold text-foreground"
+                  style={{ fontFamily: 'Georgia, serif' }}
+                >
+                  Page not found
+                </h1>
+
+                <p className="mt-3 text-muted-foreground">
+                  The page you are looking for does not exist.
+                </p>
+              </main>
+            }
+          />
+        </Routes>
+
+        <Footer />
+
+        <CartDrawer
+          open={isCartOpen}
+          onOpenChange={setIsCartOpen}
+          items={items}
+          updateQuantity={updateQuantity}
+          removeFromCart={removeFromCart}
+        />
+      </div>
+    </BrowserRouter>
+  );
+}
+
 export default App;              />
             }
           />
