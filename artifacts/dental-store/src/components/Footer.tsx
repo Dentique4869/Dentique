@@ -26,7 +26,7 @@ export function Footer() {
             href="https://wa.me/201108350907"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors h-10 px-4 py-2 bg-[#25D366]/15 text-[#4ade80] hover:bg-[#25D366]/25"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors h-10 px-4 py-2 bg-[#25D366]/15 text-[#4ade80] hover:bg-[#25D366]/20"
             data-testid="link-footer-whatsapp"
           >
             <SiWhatsapp className="w-4 h-4 mr-2" />
