@@ -61,27 +61,4 @@ export function UniversityCard({
       </CardContent>
     </Card>
   );
-}          {university.shortName && (
-            <p className="mt-2 text-sm font-medium text-muted-foreground">
-              {university.shortName}
-            </p>
-          )}
-
-          {university.campuses && university.campuses.length > 0 && (
-            <p className="mt-2 text-xs text-muted-foreground">
-              {university.campuses.length} campuses
-            </p>
-          )}
-
-          <Link
-  to={`/university/${university.id}`}
-  className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
->
-  View packages
-  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-</Link>
-        </div>
-      </CardContent>
-    </Card>
-  );
 }
