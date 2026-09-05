@@ -37,7 +37,4 @@ export function UniversitySection() {
       </div>
     </section>
   );
-}      </div>
-    </section>
-  );
 }
